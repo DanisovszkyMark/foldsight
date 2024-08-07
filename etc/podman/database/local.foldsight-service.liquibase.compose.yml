@@ -1,0 +1,16 @@
+services:
+  foldsight-service-liquibase:
+    container_name: foldsight-service-liquibase
+    image: webdevops/liquibase:postgres
+    command: [ "update" ]
+    environment:
+      LIQUIBASE_CONTEXTS: local
+      LIQUIBASE_URL: jdbc:postgresql://foldsight-postgres:5432/postgres?currentSchema=public
+      LIQUIBASE_USERNAME: root
+      LIQUIBASE_PASSWORD: admin
+      LIQUIBASE_CHANGELOG: /liquibase/changelog/foldsight-service-changelog.xml
+    volumes:
+      - ../../liquibase/changelog:/liquibase/changelog
+networks:
+  foldsight-network:
+    driver: bridge
