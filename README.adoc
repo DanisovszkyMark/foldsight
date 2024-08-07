@@ -1,0 +1,16 @@
+= foldsight
+
+The FoldSight (folder insight) application assists in performing various folder management operations.
+
+This project is the interview task for OTP Bank.
+
+== Technologies used
+
+* Spring 6.1.11
+* Spring Boot 3.3.2
+* Java 21
+* Gradle 8.8
+* Groovy 3.0.21
+* Ant 1.10.13
+
+==
