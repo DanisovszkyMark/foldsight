@@ -1,0 +1,13 @@
+services:
+  foldsight-postgres:
+    container_name: foldsight-postgres
+    image: postgres:14.11
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: postgres
+networks:
+  foldsight-network:
+    driver: bridge

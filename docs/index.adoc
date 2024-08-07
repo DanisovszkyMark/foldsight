@@ -6,6 +6,28 @@
 :rouge-style: thankful_eyes
 :icons: font
 
-= foldsight
+= FoldSight
 
-...
+The FoldSight (folder insight) application assists in performing various folder management operations.
+
+This project is the interview task for OTP Bank.
+
+== Entity diagram
+
+The following diagram illustrates the relationships between the key entities in the database schema.
+
+image::img/entity-diagram.drawio.png[]
+
+=== Tables
+
+The database schema consists of several tables. Below are the details for each table:
+
+**Analysis**
+
+The `analysis` table stores information about different analyses.
+
+**File Result**
+
+The `file_result` table contains information about file results related to analyses.
+
+For more details on the database schema, please refer to the corresponding Liquibase XML changelog files.

@@ -1,0 +1,49 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-analysis_status-enum" author="mark.danisovszky" dbms="postgresql">
+        <comment>Creates the analysis_status enum type.</comment>
+        <sql>CREATE TYPE analysis_status AS ENUM ('CREATED','IN_PROGRESS','FINISHED')</sql>
+    </changeSet>
+
+    <changeSet id="create-analysis-table" author="mark.danisovszky" dbms="postgresql">
+        <comment>Creates the analysis table.</comment>
+
+        <createTable tableName="analysis">
+            <column name="id" type="VARCHAR(30)" remarks="The primary key">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="pk-analysis-id"/>
+            </column>
+
+            <column name="status" type="analysis_status" remarks="The current status of the analysis">
+                <constraints nullable="false"/>
+            </column>
+            <column name="root_folder" type="TEXT" remarks="The root folder of the analysis">
+                <constraints nullable="false"/>
+            </column>
+            <column name="finish_date" type="TIMESTAMP" remarks="The finish date of the analysis">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="creation_date" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"
+                    remarks="The creation date of the record">
+                <constraints nullable="false"/>
+            </column>
+            <column name="creator_user" type="VARCHAR(30)" defaultValue="0"
+                    remarks="The creator user (or system) name of the record">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modification_date" type="TIMESTAMP" remarks="The last modification date of the record">
+                <constraints nullable="true"/>
+            </column>
+            <column name="last_modifier_user" type="VARCHAR(30)"
+                    remarks="The last modifier user (or system) name of the record">
+                <constraints nullable="true"/>
+            </column>
+            <column name="version" type="BIGINT" defaultValue="0"
+                    remarks="The version number of the record. Incremented by 1 at every modification">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
