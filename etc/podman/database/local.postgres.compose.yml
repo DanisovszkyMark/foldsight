@@ -8,8 +8,6 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: postgres
-    volumes:
-      - ../config/pgadmin/servers.json:/pgadmin4/servers.json
 networks:
   foldsight-network:
     driver: bridge

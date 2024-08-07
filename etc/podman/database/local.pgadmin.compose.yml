@@ -7,6 +7,8 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.hu
       PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - ../config/pgadmin/servers.json:/pgadmin4/servers.json
 networks:
   foldsight-network:
     driver: bridge
