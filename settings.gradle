@@ -1,4 +1,3 @@
 rootProject.name = 'foldsight'
-include 'dto'
 include 'services'
 include 'services:foldsight-service'
