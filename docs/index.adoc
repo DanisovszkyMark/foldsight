@@ -16,7 +16,7 @@ This project is the interview task for OTP Bank.
 
 The following diagram illustrates the relationships between the key entities in the database schema.
 
-image::img/entity-diagram.drawio.png[]
+image::img/entity-diagram.drawio.png[Entity diagram]
 
 === Tables
 
@@ -40,7 +40,6 @@ The following endpoints are available in the application:
 
 Initiates a new analysis. Returns an analysis ID that can be used with the GET endpoint to check the status. Two analyses with the same source folder cannot be started at the same time.
 
-
 === Get Analysis
 
 Retrieves the current status of the analysis. If the status is IN_PROGRESS, the analysis is not yet complete.
@@ -52,6 +51,8 @@ Queries the analyses in the system with filtering and pagination parameters.
 == Analysis Process
 
 The analysis process involves the following steps:
+
+image::img/analysis-process.drawio.png[Analysis process]
 
 === Starting a New Analysis
 
