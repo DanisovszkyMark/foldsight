@@ -19,26 +19,6 @@
             <column name="count" type="INTEGER" remarks="The count of the file">
                 <constraints nullable="false"/>
             </column>
-
-            <column name="creation_date" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP"
-                    remarks="The creation date of the record">
-                <constraints nullable="false"/>
-            </column>
-            <column name="creator_user" type="VARCHAR(30)" defaultValue="0"
-                    remarks="The creator user (or system) name of the record">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_modification_date" type="TIMESTAMP" remarks="The last modification date of the record">
-                <constraints nullable="true"/>
-            </column>
-            <column name="last_modifier_user" type="VARCHAR(30)"
-                    remarks="The last modifier user (or system) name of the record">
-                <constraints nullable="true"/>
-            </column>
-            <column name="version" type="BIGINT" defaultValue="0"
-                    remarks="The version number of the record. Incremented by 1 at every modification">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
     </changeSet>
 
