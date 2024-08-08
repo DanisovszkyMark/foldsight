@@ -16,9 +16,6 @@
             <column name="file_name" type="VARCHAR(255)" remarks="The name of the file">
                 <constraints nullable="false"/>
             </column>
-            <column name="extension" type="VARCHAR(20)" remarks="The extension of the file">
-                <constraints nullable="false"/>
-            </column>
             <column name="count" type="INTEGER" remarks="The count of the file">
                 <constraints nullable="false"/>
             </column>
