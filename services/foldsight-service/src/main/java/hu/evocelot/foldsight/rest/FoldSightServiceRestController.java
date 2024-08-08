@@ -2,11 +2,10 @@ package hu.evocelot.foldsight.rest;
 
 import static hu.evocelot.foldsight.rest.FoldSightServiceRestController.DESCRIPTION;
 import static hu.evocelot.foldsight.rest.FoldSightServiceRestController.TAG;
-import java.util.ArrayList;
-import java.util.List;
 
 import jakarta.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,14 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
+import hu.evocelot.foldsight.action.analysis.GetAnalysisAction;
 import hu.evocelot.foldsight.dto.analysis.AnalysisResponse;
-import hu.evocelot.foldsight.dto.analysis.AnalysisType;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisRequest;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisResponse;
 import hu.evocelot.foldsight.dto.analysis.StartAnalysisRequest;
-import hu.evocelot.foldsight.dto.analysis.enums.AnalysisStatus;
-import hu.evocelot.foldsight.dto.common.FullPagingDetails;
-import hu.evocelot.foldsight.dto.fileresult.FileResultType;
 import hu.evocelot.foldsight.path.FoldSightServicePath;
 
 /**
@@ -38,12 +34,15 @@ import hu.evocelot.foldsight.path.FoldSightServicePath;
 @RestController
 @RequestMapping(FoldSightServicePath.ANALYSIS_BASE_PATH)
 @Tag(name = TAG, description = DESCRIPTION)
-public class FoldSightServiceRestController extends BaseRestController {
+public class FoldSightServiceRestController {
 
     public static final String TAG = "FoldSight service";
 
     public static final String DESCRIPTION = "Service for managing the analysis operations.";
 
+
+    @Autowired
+    private GetAnalysisAction getAnalysisAction;
     /**
      * HTTP GET method for reading the details of the analysis based on the id.
      *
@@ -52,26 +51,8 @@ public class FoldSightServiceRestController extends BaseRestController {
      */
     @GetMapping(FoldSightServicePath.ID_PATH_PARAM)
     @Operation(summary = FoldSightServiceInformation.GET_ANALYSIS_SUMMARY, description = FoldSightServiceInformation.GET_ANALYSIS_DESCRIPTION)
-    public AnalysisResponse getAnalysis(@PathVariable(FoldSightServicePath.ID_PARAM) String analysisId) {
-        AnalysisResponse response = new AnalysisResponse();
-        handleSuccessfulResponse(response);
-        response.setMessage("Received id: " + analysisId);
-
-        AnalysisType mockAnalysis = new AnalysisType();
-        mockAnalysis.setAnalysisId("MOCK");
-        mockAnalysis.setExtension("txt");
-        mockAnalysis.setStatus(AnalysisStatus.IN_PROGRESS);
-        mockAnalysis.setRootFolder("ec2");
-
-        List<FileResultType> resultTypes = new ArrayList<>();
-        FileResultType fileResultType = new FileResultType();
-        fileResultType.setFileName("MOCK-file.txt");
-        fileResultType.setCount(1);
-        resultTypes.add(fileResultType);
-        mockAnalysis.setResults(resultTypes);
-
-        response.setAnalysisDetails(mockAnalysis);
-        return response;
+    public AnalysisResponse getAnalysis(@PathVariable(FoldSightServicePath.ID_PARAM) String analysisId) throws Exception {
+        return getAnalysisAction.getAnalysis(analysisId);
     }
 
     /**

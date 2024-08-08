@@ -1,15 +1,15 @@
-package hu.evocelot.foldsight.rest;
+package hu.evocelot.foldsight.action;
 
 import hu.evocelot.foldsight.dto.common.BaseRequest;
 import hu.evocelot.foldsight.dto.common.BaseResponse;
 import hu.evocelot.foldsight.dto.common.enums.FuncCode;
 
 /**
- * Base class for the rest controllers.
+ * Base class for the action classes.
  *
  * @author mark.danisovszky
  */
-public class BaseRestController {
+public class BaseAction {
 
     /**
      * Sets the function code of the response to indicate a successful operation.

@@ -1,5 +1,7 @@
 package hu.evocelot.foldsight.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,16 @@ public class FileResultService {
      */
     public FileResult findById(String id) {
         return fileResultRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * Finds all the {@link FileResult} based on the analysis id.
+     *
+     * @param analysisId - the id of the result owner analysis.
+     * @return - with the list of {@link FileResult}.
+     */
+    public List<FileResult> findByAnalysisId(String analysisId) {
+        return fileResultRepository.findByAnalysisId(analysisId);
     }
 
     /**
