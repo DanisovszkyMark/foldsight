@@ -6,13 +6,57 @@ This project is the interview task for OTP Bank.
 
 == Technologies used
 
+* Java 21
 * Spring 6.1.11
 * Spring Boot 3.3.2
-* Java 21
 * Gradle 8.8
 * Groovy 3.0.21
 * Ant 1.10.13
+* Tomcat 10.1.26
 * Podman 5.1.1
+
+== How to run the application
+
+=== Build the app
+First of all, you need to build the project with the following command:
+
+.build command
+[source,bash]
+----
+./gradlew build
+----
+
+=== Run the application
+
+There are two ways to run the application:
+
+==== Using the JAR file
+
+The application uses JAR packaging and includes an embedded Tomcat server. To run the application, use the following command:
+
+.run the jar
+[source,bash]
+----
+java -jar build/libs/foldsight-service-<VERSION_NUMBER>.jar
+----
+
+==== Using Gradle BootRun
+
+You can also run the application directly using Gradle's bootRun task:
+
+.run with BootRun
+[source,bash]
+----
+./gradlew bootRun
+----
+
+The application will start and listen on port 8585 as defined in the `application.properties` file.
+
+== Accessing Swagger UI
+
+The application includes Swagger UI to interact with the API documentation. Once the application is running, you can access the Swagger UI at the following URL:
+
+http://localhost:8585/swagger-ui.html
 
 == Documentation
 The detailed documentation is available here: link:docs/index.adoc[Documentation]
