@@ -18,9 +18,12 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 import hu.evocelot.foldsight.action.analysis.GetAnalysisAction;
 import hu.evocelot.foldsight.dto.analysis.AnalysisResponse;
+import hu.evocelot.foldsight.dto.analysis.AnalysisType;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisRequest;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisResponse;
 import hu.evocelot.foldsight.dto.analysis.StartAnalysisRequest;
+import hu.evocelot.foldsight.dto.analysis.enums.AnalysisStatus;
+import hu.evocelot.foldsight.dto.common.FullPagingDetails;
 import hu.evocelot.foldsight.path.FoldSightServicePath;
 
 /**
@@ -43,6 +46,7 @@ public class FoldSightServiceRestController {
 
     @Autowired
     private GetAnalysisAction getAnalysisAction;
+
     /**
      * HTTP GET method for reading the details of the analysis based on the id.
      *
@@ -65,7 +69,6 @@ public class FoldSightServiceRestController {
     @Operation(summary = FoldSightServiceInformation.START_ANALYSIS_SUMMARY, description = FoldSightServiceInformation.START_ANALYSIS_DESCRIPTION)
     public AnalysisResponse startAnalysis(@Valid @RequestBody StartAnalysisRequest startAnalysisRequest) {
         AnalysisResponse response = new AnalysisResponse();
-        handleSuccessfulResponse(response, startAnalysisRequest);
 
         AnalysisType mockAnalysis = new AnalysisType();
         mockAnalysis.setAnalysisId("MOCK");
@@ -87,7 +90,6 @@ public class FoldSightServiceRestController {
     @Operation(summary = FoldSightServiceInformation.QUERY_ANALYSIS_SUMMARY, description = FoldSightServiceInformation.QUERY_ANALYSIS_DESCRIPTION)
     public QueryAnalysisResponse queryAnalysis(@Valid @RequestBody QueryAnalysisRequest queryAnalysisRequest) {
         QueryAnalysisResponse response = new QueryAnalysisResponse();
-        handleSuccessfulResponse(response, queryAnalysisRequest);
 
         FullPagingDetails fullPagingDetails = new FullPagingDetails();
         fullPagingDetails.setMaxPage(10);
