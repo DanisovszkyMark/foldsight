@@ -18,8 +18,11 @@
             <column name="status" type="analysis_status" remarks="The current status of the analysis">
                 <constraints nullable="false"/>
             </column>
-            <column name="root_folder" type="TEXT" remarks="The root folder of the analysis">
+            <column name="root_folder" type="VARCHAR(255)" remarks="The root folder of the analysis">
                 <constraints nullable="false"/>
+            </column>
+            <column name="extension" type="VARCHAR(20)" remarks="The extension of the file to search">
+                <constraints nullable="true"/>
             </column>
             <column name="finish_date" type="TIMESTAMP" remarks="The finish date of the analysis">
                 <constraints nullable="true"/>
