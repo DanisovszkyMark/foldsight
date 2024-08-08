@@ -12,6 +12,7 @@ This project is the interview task for OTP Bank.
 * Gradle 8.8
 * Groovy 3.0.21
 * Ant 1.10.13
+* Hibernate 6.5.2.Final
 * Tomcat 10.1.26
 * Podman 5.1.1
 
