@@ -14,6 +14,7 @@ import hu.evocelot.foldsight.converter.AnalysisConverter;
 import hu.evocelot.foldsight.converter.FileResultConverter;
 import hu.evocelot.foldsight.dto.analysis.AnalysisResponse;
 import hu.evocelot.foldsight.dto.analysis.AnalysisType;
+import hu.evocelot.foldsight.dto.analysis.enums.AnalysisStatus;
 import hu.evocelot.foldsight.dto.fileresult.FileResultType;
 import hu.evocelot.foldsight.model.Analysis;
 import hu.evocelot.foldsight.model.FileResult;
@@ -57,7 +58,10 @@ public class GetAnalysisAction extends BaseAction {
             throw new Exception("Analysis not found!");
         }
 
-        List<FileResult> fileResults = fileResultService.findByAnalysisId(analysis.getId());
+        List<FileResult> fileResults = new ArrayList<>();
+        if (analysis.getStatus() != AnalysisStatus.CREATED) {
+            fileResults = fileResultService.findByAnalysisId(analysis.getId());
+        }
 
         AnalysisResponse response = new AnalysisResponse();
 
