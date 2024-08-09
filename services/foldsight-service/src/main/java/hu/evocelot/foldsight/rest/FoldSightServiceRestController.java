@@ -17,12 +17,12 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import hu.evocelot.foldsight.action.analysis.GetAnalysisAction;
+import hu.evocelot.foldsight.action.analysis.StartAnalysisAction;
 import hu.evocelot.foldsight.dto.analysis.AnalysisResponse;
-import hu.evocelot.foldsight.dto.analysis.AnalysisType;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisRequest;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisResponse;
 import hu.evocelot.foldsight.dto.analysis.StartAnalysisRequest;
-import hu.evocelot.foldsight.dto.analysis.enums.AnalysisStatus;
+import hu.evocelot.foldsight.dto.analysis.StartAnalysisResponse;
 import hu.evocelot.foldsight.dto.common.FullPagingDetails;
 import hu.evocelot.foldsight.path.FoldSightServicePath;
 
@@ -43,6 +43,8 @@ public class FoldSightServiceRestController {
 
     public static final String DESCRIPTION = "Service for managing the analysis operations.";
 
+    @Autowired
+    private StartAnalysisAction startAnalysisAction;
 
     @Autowired
     private GetAnalysisAction getAnalysisAction;
@@ -63,21 +65,12 @@ public class FoldSightServiceRestController {
      * HTTP POST method for starting new analysis.
      *
      * @param startAnalysisRequest - the dto that contains the details of the request.
-     * @return - with {@link AnalysisResponse} that contains the details of the analysis.
+     * @return - with {@link StartAnalysisResponse} that contains the id of the created analysis.
      */
     @PostMapping(FoldSightServicePath.START)
     @Operation(summary = FoldSightServiceInformation.START_ANALYSIS_SUMMARY, description = FoldSightServiceInformation.START_ANALYSIS_DESCRIPTION)
-    public AnalysisResponse startAnalysis(@Valid @RequestBody StartAnalysisRequest startAnalysisRequest) {
-        AnalysisResponse response = new AnalysisResponse();
-
-        AnalysisType mockAnalysis = new AnalysisType();
-        mockAnalysis.setAnalysisId("MOCK");
-        mockAnalysis.setExtension("txt");
-        mockAnalysis.setStatus(AnalysisStatus.CREATED);
-        mockAnalysis.setRootFolder("ec2");
-
-        response.setAnalysisDetails(mockAnalysis);
-        return response;
+    public StartAnalysisResponse startAnalysis(@Valid @RequestBody StartAnalysisRequest startAnalysisRequest) throws Exception {
+        return startAnalysisAction.startAnalysis(startAnalysisRequest);
     }
 
     /**
