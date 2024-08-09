@@ -20,11 +20,11 @@ public class AnalysisType extends BaseAnalysisType {
     @Schema(description = "The results of the analysis.")
     private List<FileResultType> results;
 
-    public @Valid List<FileResultType> getResults() {
+    public List<FileResultType> getResults() {
         return results;
     }
 
-    public void setResults(@Valid List<FileResultType> results) {
+    public void setResults(List<FileResultType> results) {
         this.results = results;
     }
 }

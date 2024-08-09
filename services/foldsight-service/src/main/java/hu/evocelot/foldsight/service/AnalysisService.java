@@ -1,6 +1,9 @@
 package hu.evocelot.foldsight.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import hu.evocelot.foldsight.model.Analysis;
@@ -26,6 +29,17 @@ public class AnalysisService {
      */
     public Analysis findById(String id) {
         return analysisRepository.findById(id).orElse(null);
+    }
+
+    /**
+     * Retrieves a paginated list of {@link Analysis} entities based on the provided filtering criteria.
+     *
+     * @param specification - the filtering criteria encapsulated in a Specification object.
+     * @param pageable      - the pagination details.
+     * @return - with {@link Page<Analysis>} that contains the {@link Analysis} entities that match the specified criteria.
+     */
+    public Page<Analysis> findPage(Specification<Analysis> specification, Pageable pageable) {
+        return analysisRepository.findAll(specification, pageable);
     }
 
     /**

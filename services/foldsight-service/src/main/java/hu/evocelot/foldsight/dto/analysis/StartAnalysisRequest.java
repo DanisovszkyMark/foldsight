@@ -20,24 +20,23 @@ public class StartAnalysisRequest extends BaseRequest {
     @Schema(description = "The root folder from where the analysis should start")
     private String rootFolder;
 
-    @NotBlank(message = "The extension cannot be blank!")
     @Size(max = 20, message = "The max size of the extension is 20!")
     @Schema(description = "The extension that allows defining which types of files need to be examined. If left empty, all files will be included in the examination.")
     private String extension;
 
-    public @NotBlank(message = "The rootFolder cannot be blank!") @Size(max = 255, message = "The max size of the rootFolder is 255!") String getRootFolder() {
+    public String getRootFolder() {
         return rootFolder;
     }
 
-    public void setRootFolder(@NotBlank(message = "The rootFolder cannot be blank!") @Size(max = 255, message = "The max size of the rootFolder is 255!") String rootFolder) {
+    public void setRootFolder(String rootFolder) {
         this.rootFolder = rootFolder;
     }
 
-    public @NotBlank(message = "The extension cannot be blank!") @Size(max = 20, message = "The max size of the extension is 20!") String getExtension() {
+    public String getExtension() {
         return extension;
     }
 
-    public void setExtension(@NotBlank(message = "The extension cannot be blank!") @Size(max = 20, message = "The max size of the extension is 20!") String extension) {
+    public void setExtension(String extension) {
         this.extension = extension;
     }
 }

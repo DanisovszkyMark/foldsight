@@ -1,5 +1,6 @@
 package hu.evocelot.foldsight.dto.common;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -13,28 +14,27 @@ import io.swagger.v3.oas.annotations.media.Schema;
 public class BasePagingDetails {
 
     @NotNull(message = "The page number cannot be null!")
-    @Schema(description = "The actual page number.")
+    @Schema(description = "The actual page number. Starts from 1.")
+    @Min(value = 1, message = "The minimum value for the pageNumber is 1!")
     private int pageNumber;
 
     @NotNull(message = "The rowsPerPage number cannot be null!")
     @Schema(description = "The number of rows on the current page.")
     private int rowsPerPage;
 
-    @NotNull(message = "The page number cannot be null!")
     public int getPageNumber() {
         return pageNumber;
     }
 
-    public void setPageNumber(@NotNull(message = "The page number cannot be null!") int pageNumber) {
+    public void setPageNumber(int pageNumber) {
         this.pageNumber = pageNumber;
     }
 
-    @NotNull(message = "The rowsPerPage number cannot be null!")
     public int getRowsPerPage() {
         return rowsPerPage;
     }
 
-    public void setRowsPerPage(@NotNull(message = "The rowsPerPage number cannot be null!") int rowsPerPage) {
+    public void setRowsPerPage(int rowsPerPage) {
         this.rowsPerPage = rowsPerPage;
     }
 }

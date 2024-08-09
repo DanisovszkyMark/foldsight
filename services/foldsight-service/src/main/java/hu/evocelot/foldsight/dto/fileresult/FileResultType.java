@@ -23,20 +23,19 @@ public class FileResultType {
     @Schema(description = "The occurrence count of the file")
     private int count;
 
-    public @NotBlank(message = "The fileName cannot be blank!") @Size(max = 255, message = "The max size of the fileName is 255!") String getFileName() {
+    public String getFileName() {
         return fileName;
     }
 
-    public void setFileName(@NotBlank(message = "The fileName cannot be blank!") @Size(max = 255, message = "The max size of the fileName is 255!") String fileName) {
+    public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
-    @NotNull(message = "The count cannot be null!")
     public int getCount() {
         return count;
     }
 
-    public void setCount(@NotNull(message = "The count cannot be null!") int count) {
+    public void setCount(int count) {
         this.count = count;
     }
 }

@@ -18,11 +18,11 @@ public class AnalysisResponse extends BaseResponse {
     @Schema(description = "The details of the analysis.")
     private AnalysisType analysisDetails;
 
-    public @NotNull(message = "The analysisDetails cannot be null!") AnalysisType getAnalysisDetails() {
+    public AnalysisType getAnalysisDetails() {
         return analysisDetails;
     }
 
-    public void setAnalysisDetails(@NotNull(message = "The analysisDetails cannot be null!") AnalysisType analysisDetails) {
+    public void setAnalysisDetails(AnalysisType analysisDetails) {
         this.analysisDetails = analysisDetails;
     }
 }

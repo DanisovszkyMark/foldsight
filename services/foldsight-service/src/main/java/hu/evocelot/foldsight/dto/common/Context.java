@@ -25,19 +25,19 @@ public class Context {
     @Schema(description = "The time of the request in UTC.")
     private OffsetDateTime timestamp;
 
-    public @NotBlank @Size(max = 30) String getRequestId() {
+    public String getRequestId() {
         return requestId;
     }
 
-    public void setRequestId(@NotBlank @Size(max = 30) String requestId) {
+    public void setRequestId(String requestId) {
         this.requestId = requestId;
     }
 
-    public @NotNull OffsetDateTime getTimestamp() {
+    public OffsetDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(@NotNull OffsetDateTime timestamp) {
+    public void setTimestamp(OffsetDateTime timestamp) {
         this.timestamp = timestamp;
     }
 }

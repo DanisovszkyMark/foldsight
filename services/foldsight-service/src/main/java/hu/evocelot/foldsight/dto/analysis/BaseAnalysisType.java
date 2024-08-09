@@ -52,39 +52,39 @@ public class BaseAnalysisType {
         return analysisId;
     }
 
-    public void setAnalysisId(@NotBlank(message = "The id of the analysis cannot be blank!") @Size(max = 30, message = "The max size of the id is 30!") String analysisId) {
+    public void setAnalysisId(String analysisId) {
         this.analysisId = analysisId;
     }
 
-    public @NotNull(message = "The status of the analysis cannot be null!") AnalysisStatus getStatus() {
+    public AnalysisStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@NotNull(message = "The status of the analysis cannot be null!") AnalysisStatus status) {
+    public void setStatus(AnalysisStatus status) {
         this.status = status;
     }
 
-    public @NotBlank(message = "The rootFolder cannot be blank!") @Size(max = 255, message = "The max size of the rootFolder is 255!") String getRootFolder() {
+    public String getRootFolder() {
         return rootFolder;
     }
 
-    public void setRootFolder(@NotBlank(message = "The rootFolder cannot be blank!") @Size(max = 255, message = "The max size of the rootFolder is 255!") String rootFolder) {
+    public void setRootFolder(String rootFolder) {
         this.rootFolder = rootFolder;
     }
 
-    public @NotBlank(message = "The extension cannot be blank!") @Size(max = 20, message = "The max size of the extension is 20!") String getExtension() {
+    public String getExtension() {
         return extension;
     }
 
-    public void setExtension(@NotBlank(message = "The extension cannot be blank!") @Size(max = 20, message = "The max size of the extension is 20!") String extension) {
+    public void setExtension(String extension) {
         this.extension = extension;
     }
 
-    public @NotNull(message = "The startDate cannot be null!") OffsetDateTime getStartDate() {
+    public OffsetDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(@NotNull(message = "The startDate cannot be null!") OffsetDateTime startDate) {
+    public void setStartDate(OffsetDateTime startDate) {
         this.startDate = startDate;
     }
 
@@ -96,11 +96,11 @@ public class BaseAnalysisType {
         this.finishDate = finishDate;
     }
 
-    public @NotBlank(message = "The creatorUser cannot be blank!.") @Size(max = 30, message = "The name of the creator user of the analysis.") String getCreatorUser() {
+    public String getCreatorUser() {
         return creatorUser;
     }
 
-    public void setCreatorUser(@NotBlank(message = "The creatorUser cannot be blank!.") @Size(max = 30, message = "The name of the creator user of the analysis.") String creatorUser) {
+    public void setCreatorUser(String creatorUser) {
         this.creatorUser = creatorUser;
     }
 }

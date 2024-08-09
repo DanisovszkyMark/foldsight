@@ -26,19 +26,19 @@ public class BaseResponse {
     @Schema(description = "The optional message of the response.")
     private String message;
 
-    public @NotNull @Valid Context getContext() {
+    public Context getContext() {
         return context;
     }
 
-    public void setContext(@NotNull @Valid Context context) {
+    public void setContext(Context context) {
         this.context = context;
     }
 
-    public @NotNull FuncCode getFuncCode() {
+    public FuncCode getFuncCode() {
         return funcCode;
     }
 
-    public void setFuncCode(@NotNull FuncCode funcCode) {
+    public void setFuncCode(FuncCode funcCode) {
         this.funcCode = funcCode;
     }
 
