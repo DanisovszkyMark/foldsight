@@ -18,11 +18,11 @@ public class BaseRequest {
     @Schema(description = "The context of the request.")
     private Context context;
 
-    public @NotNull @Valid Context getContext() {
+    public Context getContext() {
         return context;
     }
 
-    public void setContext(@NotNull @Valid Context context) {
+    public void setContext(Context context) {
         this.context = context;
     }
 }

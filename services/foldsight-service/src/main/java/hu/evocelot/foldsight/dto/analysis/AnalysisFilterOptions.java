@@ -41,19 +41,19 @@ public class AnalysisFilterOptions {
         this.status = status;
     }
 
-    public @Size(max = 255, message = "The max size of the rootFolder is 255!") String getRootFolder() {
+    public String getRootFolder() {
         return rootFolder;
     }
 
-    public void setRootFolder(@Size(max = 255, message = "The max size of the rootFolder is 255!") String rootFolder) {
+    public void setRootFolder(String rootFolder) {
         this.rootFolder = rootFolder;
     }
 
-    public @Size(max = 20, message = "The max size of the extension is 20!") String getExtension() {
+    public String getExtension() {
         return extension;
     }
 
-    public void setExtension(@Size(max = 20, message = "The max size of the extension is 20!") String extension) {
+    public void setExtension(String extension) {
         this.extension = extension;
     }
 

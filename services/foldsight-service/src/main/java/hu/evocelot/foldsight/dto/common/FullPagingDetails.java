@@ -20,21 +20,19 @@ public class FullPagingDetails extends BasePagingDetails {
     @Schema(description = "The count of the all rows.")
     private int rowCount;
 
-    @NotNull(message = "The maxPage cannot be null!")
     public int getMaxPage() {
         return maxPage;
     }
 
-    public void setMaxPage(@NotNull(message = "The maxPage cannot be null!") int maxPage) {
+    public void setMaxPage(int maxPage) {
         this.maxPage = maxPage;
     }
 
-    @NotNull(message = "The rowCount cannot be null!")
     public int getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(@NotNull(message = "The rowCount cannot be null!") int rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 }

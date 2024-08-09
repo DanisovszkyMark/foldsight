@@ -18,11 +18,11 @@ public class BaseQueryResponse extends BaseResponse {
     @Schema(description = "The full details of the paging.")
     private FullPagingDetails fullPagingDetails;
 
-    public @NotNull(message = "The fullPagingDetails cannot be null!") FullPagingDetails getFullPagingDetails() {
+    public FullPagingDetails getFullPagingDetails() {
         return fullPagingDetails;
     }
 
-    public void setFullPagingDetails(@NotNull(message = "The fullPagingDetails cannot be null!") FullPagingDetails fullPagingDetails) {
+    public void setFullPagingDetails(FullPagingDetails fullPagingDetails) {
         this.fullPagingDetails = fullPagingDetails;
     }
 }

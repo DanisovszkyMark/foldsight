@@ -18,11 +18,11 @@ public class BaseQueryRequest extends BaseRequest {
     @Schema(description = "The details of the paging.")
     private BasePagingDetails basePagingDetails;
 
-    public @NotNull(message = "The basePagingDetails cannot be null!") BasePagingDetails getBasePagingDetails() {
+    public BasePagingDetails getBasePagingDetails() {
         return basePagingDetails;
     }
 
-    public void setBasePagingDetails(@NotNull(message = "The basePagingDetails cannot be null!") BasePagingDetails basePagingDetails) {
+    public void setBasePagingDetails(BasePagingDetails basePagingDetails) {
         this.basePagingDetails = basePagingDetails;
     }
 }
