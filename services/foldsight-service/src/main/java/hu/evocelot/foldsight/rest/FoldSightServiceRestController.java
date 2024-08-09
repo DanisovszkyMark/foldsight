@@ -23,6 +23,7 @@ import hu.evocelot.foldsight.dto.analysis.QueryAnalysisRequest;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisResponse;
 import hu.evocelot.foldsight.dto.analysis.StartAnalysisRequest;
 import hu.evocelot.foldsight.dto.analysis.StartAnalysisResponse;
+import hu.evocelot.foldsight.dto.common.FullPagingDetails;
 import hu.evocelot.foldsight.path.FoldSightServicePath;
 
 /**
