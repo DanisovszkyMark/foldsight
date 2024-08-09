@@ -1,6 +1,7 @@
 package hu.evocelot.foldsight.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -14,7 +15,7 @@ import hu.evocelot.foldsight.model.Analysis;
  * @since 0.1.0
  */
 @Repository
-public interface AnalysisRepository extends JpaRepository<Analysis, String> {
+public interface AnalysisRepository extends JpaRepository<Analysis, String>, JpaSpecificationExecutor<Analysis> {
 
     /**
      * Checks if there is an analysis with the given rootFolder where the status is not FINISHED.

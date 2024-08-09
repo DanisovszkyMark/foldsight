@@ -17,13 +17,13 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import hu.evocelot.foldsight.action.analysis.GetAnalysisAction;
+import hu.evocelot.foldsight.action.analysis.QueryAnalysisAction;
 import hu.evocelot.foldsight.action.analysis.StartAnalysisAction;
 import hu.evocelot.foldsight.dto.analysis.AnalysisResponse;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisRequest;
 import hu.evocelot.foldsight.dto.analysis.QueryAnalysisResponse;
 import hu.evocelot.foldsight.dto.analysis.StartAnalysisRequest;
 import hu.evocelot.foldsight.dto.analysis.StartAnalysisResponse;
-import hu.evocelot.foldsight.dto.common.FullPagingDetails;
 import hu.evocelot.foldsight.path.FoldSightServicePath;
 
 /**
@@ -48,6 +48,9 @@ public class FoldSightServiceRestController {
 
     @Autowired
     private GetAnalysisAction getAnalysisAction;
+
+    @Autowired
+    private QueryAnalysisAction queryAnalysisAction;
 
     /**
      * HTTP GET method for reading the details of the analysis based on the id.
@@ -82,15 +85,6 @@ public class FoldSightServiceRestController {
     @PostMapping(FoldSightServicePath.QUERY)
     @Operation(summary = FoldSightServiceInformation.QUERY_ANALYSIS_SUMMARY, description = FoldSightServiceInformation.QUERY_ANALYSIS_DESCRIPTION)
     public QueryAnalysisResponse queryAnalysis(@Valid @RequestBody QueryAnalysisRequest queryAnalysisRequest) {
-        QueryAnalysisResponse response = new QueryAnalysisResponse();
-
-        FullPagingDetails fullPagingDetails = new FullPagingDetails();
-        fullPagingDetails.setMaxPage(10);
-        fullPagingDetails.setPageNumber(1);
-        fullPagingDetails.setRowsPerPage(50);
-        fullPagingDetails.setRowCount(256);
-
-        response.setFullPagingDetails(fullPagingDetails);
-        return response;
+        return queryAnalysisAction.queryAnalysis(queryAnalysisRequest);
     }
 }
